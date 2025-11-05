@@ -1,3 +1,7 @@
+// Automatically detect environment
+const isProduction = window.location.hostname.includes('github.io') || 
+                     window.location.hostname.includes('gaurav478-stack');
+
 const CONFIG = {
     ALPHA_VANTAGE: {
         BASE_URL: 'https://www.alphavantage.co/query',
@@ -6,8 +10,13 @@ const CONFIG = {
         ENABLED: false // Disabled in favor of yfinance
     },
     BACKEND: {
-        BASE_URL: 'http://localhost:3000/api',
-        ANALYTICS_URL: 'http://localhost:8000/api'
+        // 🔥 TODO: Replace these URLs with your actual Render URLs after deployment!
+        BASE_URL: isProduction 
+            ? 'https://stocksense-backend.onrender.com/api'  // REPLACE WITH YOUR BACKEND URL
+            : 'http://localhost:3000/api',
+        ANALYTICS_URL: isProduction 
+            ? 'https://stocksense-analytics.onrender.com/api'  // REPLACE WITH YOUR ANALYTICS URL
+            : 'http://localhost:8000/api'
     },
     APP: {
         DEFAULT_WATCHLIST: ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA'], // Back to 5 stocks - no limits with yfinance!

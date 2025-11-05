@@ -41,7 +41,14 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
       imgSrc: ["'self'", "data:", "https:", "blob:"],
-      connectSrc: ["'self'", "http://localhost:8000", "http://localhost:3000"],
+      connectSrc: [
+        "'self'", 
+        "http://localhost:8000", 
+        "http://localhost:3000",
+        "https://stocksense-backend.onrender.com",
+        "https://stocksense-analytics.onrender.com",
+        "https://gaurav478-stack.github.io"
+      ],
       frameSrc: ["'none'"],
       objectSrc: ["'none'"],
       baseUri: ["'self'"],
@@ -65,7 +72,14 @@ app.use(helmet({
 // CORS - Restrict to specific origins
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',') 
-  : ['http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000'];
+  : [
+      'http://localhost:5500', 
+      'http://127.0.0.1:5500', 
+      'http://localhost:3000',
+      'https://gaurav478-stack.github.io',  // Your GitHub Pages domain
+      'https://stocksense-backend.onrender.com',  // Your backend domain
+      'https://stocksense-analytics.onrender.com'  // Your analytics domain
+    ];
 
 app.use(cors({
   origin: function(origin, callback) {
