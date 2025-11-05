@@ -1,6 +1,7 @@
 // Automatically detect environment
 const isProduction = window.location.hostname.includes('github.io') || 
-                     window.location.hostname.includes('gaurav478-stack');
+                     window.location.hostname.includes('gaurav478-stack') ||
+                     window.location.hostname.includes('onrender.com');
 
 const CONFIG = {
     ALPHA_VANTAGE: {

@@ -1,0 +1,21 @@
+{
+  "name": "stocksense-frontend",
+  "version": "1.0.0",
+  "description": "StockSense AI-Powered Stock Analysis Platform - Frontend",
+  "scripts": {
+    "start": "npx http-server frontend -p 8080 -a 0.0.0.0",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "stock-analysis",
+    "ai",
+    "lstm",
+    "prediction",
+    "portfolio-optimization"
+  ],
+  "author": "Gaurav",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

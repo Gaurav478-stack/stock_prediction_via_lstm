@@ -1,0 +1,40 @@
+# Frontend Deployment - Render Configuration
+
+## This allows your frontend to be served from Render as a static site
+
+# Build settings for Render
+buildCommand = "echo 'No build needed - static site'"
+publishDir = "frontend"
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML files should not be cached
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirects
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
