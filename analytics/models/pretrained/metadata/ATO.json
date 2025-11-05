@@ -1,0 +1,22 @@
+{
+  "symbol": "ATO",
+  "trained_date": "2025-11-04T13:30:36.538351",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.028556134551763535,
+  "test_mae": 0.14900027215480804,
+  "final_train_loss": 0.00762074813246727,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

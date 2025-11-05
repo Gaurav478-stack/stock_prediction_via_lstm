@@ -1,0 +1,22 @@
+{
+  "symbol": "AVB",
+  "trained_date": "2025-11-04T13:28:46.202822",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0078370226547122,
+  "test_mae": 0.06040346994996071,
+  "final_train_loss": 0.01689760759472847,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

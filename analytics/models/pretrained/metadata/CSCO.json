@@ -1,0 +1,22 @@
+{
+  "symbol": "CSCO",
+  "trained_date": "2025-11-04T13:19:06.574092",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01716979406774044,
+  "test_mae": 0.11893025785684586,
+  "final_train_loss": 0.007498054299503565,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

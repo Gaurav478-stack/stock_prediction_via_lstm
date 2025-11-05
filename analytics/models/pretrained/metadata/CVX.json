@@ -1,0 +1,22 @@
+{
+  "symbol": "CVX",
+  "trained_date": "2025-11-04T13:25:47.825748",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01619669236242771,
+  "test_mae": 0.11124436557292938,
+  "final_train_loss": 0.028109252452850342,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "AES",
+  "trained_date": "2025-11-04T13:30:15.587629",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.017824772745370865,
+  "test_mae": 0.10659655928611755,
+  "final_train_loss": 0.018937760964035988,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

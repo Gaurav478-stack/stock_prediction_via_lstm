@@ -1,0 +1,22 @@
+{
+  "symbol": "REG",
+  "trained_date": "2025-11-04T13:29:17.163598",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.015324351377785206,
+  "test_mae": 0.11006002873182297,
+  "final_train_loss": 0.01608247496187687,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

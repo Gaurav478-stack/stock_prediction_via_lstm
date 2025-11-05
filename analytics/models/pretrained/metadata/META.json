@@ -1,0 +1,22 @@
+{
+  "symbol": "META",
+  "trained_date": "2025-11-04T13:18:25.765196",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.008708889596164227,
+  "test_mae": 0.07202182710170746,
+  "final_train_loss": 0.012678341008722782,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

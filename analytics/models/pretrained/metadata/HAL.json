@@ -1,0 +1,22 @@
+{
+  "symbol": "HAL",
+  "trained_date": "2025-11-04T13:26:21.777017",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.04159300774335861,
+  "test_mae": 0.16964639723300934,
+  "final_train_loss": 0.00867192167788744,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

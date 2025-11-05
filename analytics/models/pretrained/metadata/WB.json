@@ -1,0 +1,22 @@
+{
+  "symbol": "WB",
+  "trained_date": "2025-11-04T13:32:21.199522",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.028359713032841682,
+  "test_mae": 0.13923895359039307,
+  "final_train_loss": 0.009082742035388947,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

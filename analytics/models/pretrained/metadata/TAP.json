@@ -1,0 +1,22 @@
+{
+  "symbol": "TAP",
+  "trained_date": "2025-11-04T13:24:23.351037",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.011292469687759876,
+  "test_mae": 0.08439233899116516,
+  "final_train_loss": 0.011828492395579815,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

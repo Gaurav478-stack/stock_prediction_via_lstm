@@ -1,0 +1,22 @@
+{
+  "symbol": "EMR",
+  "trained_date": "2025-11-04T13:25:07.573333",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.004923753906041384,
+  "test_mae": 0.05672391876578331,
+  "final_train_loss": 0.01139367837458849,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

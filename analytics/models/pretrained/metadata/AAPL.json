@@ -1,0 +1,22 @@
+{
+  "symbol": "AAPL",
+  "trained_date": "2025-11-04T13:18:00.079679",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.018197616562247276,
+  "test_mae": 0.11453881859779358,
+  "final_train_loss": 0.011385469697415829,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

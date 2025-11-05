@@ -1,0 +1,22 @@
+{
+  "symbol": "ICE",
+  "trained_date": "2025-11-04T13:21:16.851535",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01902841217815876,
+  "test_mae": 0.12235471606254578,
+  "final_train_loss": 0.01471727155148983,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "NOC",
+  "trained_date": "2025-11-04T13:24:59.937970",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.009060589596629143,
+  "test_mae": 0.08579760789871216,
+  "final_train_loss": 0.00987163558602333,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

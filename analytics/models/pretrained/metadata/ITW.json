@@ -1,0 +1,22 @@
+{
+  "symbol": "ITW",
+  "trained_date": "2025-11-04T13:25:11.246196",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0062549724243581295,
+  "test_mae": 0.06563616544008255,
+  "final_train_loss": 0.016614004969596863,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

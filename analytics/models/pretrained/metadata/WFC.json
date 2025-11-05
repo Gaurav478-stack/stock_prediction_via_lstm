@@ -1,0 +1,22 @@
+{
+  "symbol": "WFC",
+  "trained_date": "2025-11-04T13:20:31.977483",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.05738168954849243,
+  "test_mae": 0.2168952226638794,
+  "final_train_loss": 0.015376945957541466,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

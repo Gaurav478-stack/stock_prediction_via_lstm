@@ -1,0 +1,22 @@
+{
+  "symbol": "BAC",
+  "trained_date": "2025-11-04T13:20:27.188828",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.024643339216709137,
+  "test_mae": 0.14116083085536957,
+  "final_train_loss": 0.012124511413276196,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "NEE",
+  "trained_date": "2025-11-04T13:29:28.421731",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0543815903365612,
+  "test_mae": 0.20038902759552002,
+  "final_train_loss": 0.012731261551380157,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "TGT",
+  "trained_date": "2025-11-04T13:23:19.733405",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.004219344351440668,
+  "test_mae": 0.056734781712293625,
+  "final_train_loss": 0.006050131283700466,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "SLB",
+  "trained_date": "2025-11-04T13:25:55.133312",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01776554062962532,
+  "test_mae": 0.10614132136106491,
+  "final_train_loss": 0.020430590957403183,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

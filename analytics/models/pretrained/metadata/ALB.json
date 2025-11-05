@@ -1,0 +1,22 @@
+{
+  "symbol": "ALB",
+  "trained_date": "2025-11-04T13:27:24.906835",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01580275036394596,
+  "test_mae": 0.10908205807209015,
+  "final_train_loss": 0.008360867388546467,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

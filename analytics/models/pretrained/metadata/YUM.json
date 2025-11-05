@@ -1,0 +1,22 @@
+{
+  "symbol": "YUM",
+  "trained_date": "2025-11-04T13:23:54.568110",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.009104705415666103,
+  "test_mae": 0.08222690224647522,
+  "final_train_loss": 0.014190935529768467,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "ETN",
+  "trained_date": "2025-11-04T13:25:14.974240",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0360775925219059,
+  "test_mae": 0.18414899706840515,
+  "final_train_loss": 0.012917197309434414,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

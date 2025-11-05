@@ -1,0 +1,22 @@
+{
+  "symbol": "AMZN",
+  "trained_date": "2025-11-04T13:18:19.247944",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01821184530854225,
+  "test_mae": 0.10631977766752243,
+  "final_train_loss": 0.011044042184948921,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "MS",
+  "trained_date": "2025-11-04T13:20:40.095083",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.005878338124603033,
+  "test_mae": 0.06400220096111298,
+  "final_train_loss": 0.008244026452302933,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

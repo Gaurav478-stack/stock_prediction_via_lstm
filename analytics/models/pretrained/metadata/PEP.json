@@ -1,0 +1,22 @@
+{
+  "symbol": "PEP",
+  "trained_date": "2025-11-04T13:23:05.214735",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.020361116155982018,
+  "test_mae": 0.11549770832061768,
+  "final_train_loss": 0.022628003731369972,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

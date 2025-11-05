@@ -1,0 +1,22 @@
+{
+  "symbol": "SYK",
+  "trained_date": "2025-11-04T13:22:43.878017",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.020741596817970276,
+  "test_mae": 0.10970433056354523,
+  "final_train_loss": 0.02141505293548107,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

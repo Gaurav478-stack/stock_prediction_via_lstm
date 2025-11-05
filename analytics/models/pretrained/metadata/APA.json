@@ -1,0 +1,22 @@
+{
+  "symbol": "APA",
+  "trained_date": "2025-11-04T13:26:40.510812",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.019958224147558212,
+  "test_mae": 0.12082032114267349,
+  "final_train_loss": 0.01378166489303112,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

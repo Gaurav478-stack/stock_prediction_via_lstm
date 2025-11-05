@@ -1,0 +1,22 @@
+{
+  "symbol": "HSY",
+  "trained_date": "2025-11-04T13:24:19.559307",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.019957493990659714,
+  "test_mae": 0.12424375861883163,
+  "final_train_loss": 0.014682762324810028,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

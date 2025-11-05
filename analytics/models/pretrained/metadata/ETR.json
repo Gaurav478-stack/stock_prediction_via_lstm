@@ -1,0 +1,22 @@
+{
+  "symbol": "ETR",
+  "trained_date": "2025-11-04T13:30:24.162460",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.040383514016866684,
+  "test_mae": 0.19004784524440765,
+  "final_train_loss": 0.007281068246811628,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

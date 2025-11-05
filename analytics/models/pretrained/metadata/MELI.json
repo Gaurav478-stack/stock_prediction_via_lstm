@@ -1,0 +1,22 @@
+{
+  "symbol": "MELI",
+  "trained_date": "2025-11-04T13:31:53.688736",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.020760774612426758,
+  "test_mae": 0.12177927047014236,
+  "final_train_loss": 0.016299212351441383,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "BLK",
+  "trained_date": "2025-11-04T13:21:04.001615",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.004327104426920414,
+  "test_mae": 0.05312131717801094,
+  "final_train_loss": 0.00953307468444109,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

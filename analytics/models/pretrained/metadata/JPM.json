@@ -1,0 +1,22 @@
+{
+  "symbol": "JPM",
+  "trained_date": "2025-11-04T13:20:23.191483",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.007054186426103115,
+  "test_mae": 0.06777185946702957,
+  "final_train_loss": 0.0076505281031131744,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

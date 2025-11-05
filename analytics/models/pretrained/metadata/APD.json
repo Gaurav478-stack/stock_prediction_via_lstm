@@ -1,0 +1,22 @@
+{
+  "symbol": "APD",
+  "trained_date": "2025-11-04T13:26:55.701890",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.016167577356100082,
+  "test_mae": 0.11183661967515945,
+  "final_train_loss": 0.011456822976469994,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization Test - StockSense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        input, select, button {
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        
+        input, select {
+            background: white;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .chart-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chart-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .chart-container {
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chart-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading {
+            color: #667eea;
+            font-size: 1.2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        .error {
+            color: #ef4444;
+            background: #fee;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .info {
+            background: #e0e7ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chart-section {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 StockSense Visualization Test</h1>
+            <p>Test the Python-based matplotlib chart generation with beautiful visualizations</p>
+            
+            <div class="controls">
+                <input type="text" id="symbolInput" placeholder="Enter stock symbol (e.g., AAPL, NVDA, TSLA)" value="AAPL">
+                <select id="chartType">
+                    <option value="prediction">Prediction Chart</option>
+                    <option value="comprehensive">Comprehensive Analysis</option>
+                </select>
+                <button id="generateBtn" onclick="generateChart()">🎨 Generate Chart</button>
+            </div>
+            
+            <div class="info">
+                💡 <strong>Try these stocks:</strong> AAPL (Apple), NVDA (NVIDIA), TSLA (Tesla), MSFT (Microsoft), GOOGL (Google), AMZN (Amazon), META (Meta)
+            </div>
+        </div>
+        
+        <div id="statsSection" style="display: none;">
+            <div class="chart-section">
+                <div class="chart-title">📈 Prediction Statistics</div>
+                <div class="stats" id="stats"></div>
+            </div>
+        </div>
+        
+        <div class="chart-section">
+            <div class="chart-title">📉 Visualization</div>
+            <div class="chart-container" id="chartContainer">
+                <div class="loading">Click "Generate Chart" to start</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+        
+        async function generateChart() {
+            const symbol = document.getElementById('symbolInput').value.trim();
+            const chartType = document.getElementById('chartType').value;
+            const btn = document.getElementById('generateBtn');
+            const container = document.getElementById('chartContainer');
+            const statsSection = document.getElementById('statsSection');
+            const statsDiv = document.getElementById('stats');
+            
+            if (!symbol) {
+                alert('Please enter a stock symbol');
+                return;
+            }
+            
+            // Disable button and show loading
+            btn.disabled = true;
+            btn.textContent = '⏳ Generating...';
+            container.innerHTML = '<div class="loading">Generating chart... This may take a few seconds</div>';
+            statsSection.style.display = 'none';
+            
+            try {
+                let endpoint, params;
+                
+                if (chartType === 'prediction') {
+                    endpoint = `${API_BASE}/api/ai/visualization/prediction-chart`;
+                    params = { symbol, future_days: 30 };
+                } else {
+                    endpoint = `${API_BASE}/api/ai/visualization/comprehensive-analysis`;
+                    params = { symbol, future_days: 30 };
+                }
+                
+                // Build query string
+                const queryString = new URLSearchParams(params).toString();
+                const url = `${endpoint}?${queryString}`;
+                
+                console.log('Fetching:', url);
+                const startTime = Date.now();
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                const endTime = Date.now();
+                const duration = ((endTime - startTime) / 1000).toFixed(2);
+                
+                if (!response.ok) {
+                    throw new Error(data.detail || 'Failed to generate chart');
+                }
+                
+                if (!data.success) {
+                    throw new Error('Chart generation failed');
+                }
+                
+                // Display chart
+                const img = document.createElement('img');
+                img.src = `data:image/png;base64,${data.chart}`;
+                img.alt = `${symbol} Stock Prediction Chart`;
+                container.innerHTML = '';
+                container.appendChild(img);
+                
+                // Show stats (for prediction chart, we need to fetch prediction data)
+                if (chartType === 'prediction') {
+                    const predResponse = await fetch(`${API_BASE}/api/ai/predict/lstm-pretrained?symbol=${symbol}&future_days=30`);
+                    const predData = await predResponse.json();
+                    
+                    if (predData.success) {
+                        const currentPrice = predData.current_price.toFixed(2);
+                        const predictedPrice = predData.predicted_price.toFixed(2);
+                        const changePercent = ((predictedPrice - currentPrice) / currentPrice * 100).toFixed(2);
+                        const changeColor = changePercent >= 0 ? '#10B981' : '#EF4444';
+                        const changeSign = changePercent >= 0 ? '+' : '';
+                        
+                        statsDiv.innerHTML = `
+                            <div class="stat-card">
+                                <div class="stat-label">Symbol</div>
+                                <div class="stat-value">${predData.resolved_symbol}</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Current Price</div>
+                                <div class="stat-value">$${currentPrice}</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Predicted Price (30d)</div>
+                                <div class="stat-value">$${predictedPrice}</div>
+                            </div>
+                            <div class="stat-card" style="background: ${changeColor};">
+                                <div class="stat-label">Change</div>
+                                <div class="stat-value">${changeSign}${changePercent}%</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Generation Time</div>
+                                <div class="stat-value">${duration}s</div>
+                            </div>
+                        `;
+                        statsSection.style.display = 'block';
+                    }
+                }
+                
+                console.log('Chart generated successfully in', duration, 'seconds');
+                
+            } catch (error) {
+                console.error('Error:', error);
+                container.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🎨 Generate Chart';
+            }
+        }
+        
+        // Allow Enter key to trigger generation
+        document.getElementById('symbolInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                generateChart();
+            }
+        });
+    </script>
+</body>
+</html>

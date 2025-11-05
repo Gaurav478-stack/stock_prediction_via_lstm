@@ -1,0 +1,22 @@
+{
+  "symbol": "PKG",
+  "trained_date": "2025-11-04T13:27:51.887933",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.013659602031111717,
+  "test_mae": 0.10127990692853928,
+  "final_train_loss": 0.010918832384049892,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

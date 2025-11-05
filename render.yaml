@@ -1,0 +1,46 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "stocksense-backend",
+      "env": "node",
+      "buildCommand": "cd backend && npm install",
+      "startCommand": "cd backend && npm start",
+      "envVars": [
+        {
+          "key": "MONGODB_URI",
+          "sync": false
+        },
+        {
+          "key": "JWT_SECRET",
+          "generateValue": true
+        },
+        {
+          "key": "ALPHA_VANTAGE_API_KEY",
+          "sync": false
+        },
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        }
+      ]
+    },
+    {
+      "type": "web",
+      "name": "stocksense-analytics",
+      "env": "python",
+      "buildCommand": "cd analytics && pip install -r requirements.txt",
+      "startCommand": "cd analytics && python app.py",
+      "envVars": [
+        {
+          "key": "FLASK_ENV",
+          "value": "production"
+        },
+        {
+          "key": "PORT",
+          "value": "8000"
+        }
+      ]
+    }
+  ]
+}

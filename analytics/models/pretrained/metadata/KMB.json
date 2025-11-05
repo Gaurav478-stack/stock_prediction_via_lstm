@@ -1,0 +1,22 @@
+{
+  "symbol": "KMB",
+  "trained_date": "2025-11-04T13:24:07.990228",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.012064564973115921,
+  "test_mae": 0.08202002942562103,
+  "final_train_loss": 0.011188608594238758,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

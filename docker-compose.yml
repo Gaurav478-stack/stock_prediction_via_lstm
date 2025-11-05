@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - ANALYTICS_SERVICE_URL=http://analytics:8000
+    depends_on:
+      - analytics
+
+  analytics:
+    build: ./analytics
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+
+volumes:
+  mongodb_data:

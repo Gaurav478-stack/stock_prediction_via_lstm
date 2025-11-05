@@ -1,0 +1,22 @@
+{
+  "symbol": "STLD",
+  "trained_date": "2025-11-04T13:27:36.604864",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.06558123230934143,
+  "test_mae": 0.2219097763299942,
+  "final_train_loss": 0.0076379417441785336,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

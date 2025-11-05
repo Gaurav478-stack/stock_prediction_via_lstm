@@ -1,0 +1,22 @@
+{
+  "symbol": "LMT",
+  "trained_date": "2025-11-04T13:24:52.657489",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.07486096024513245,
+  "test_mae": 0.26052889227867126,
+  "final_train_loss": 0.022042028605937958,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

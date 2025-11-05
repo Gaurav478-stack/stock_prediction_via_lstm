@@ -1,0 +1,22 @@
+{
+  "symbol": "VTR",
+  "trained_date": "2025-11-04T13:28:53.852954",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.032706454396247864,
+  "test_mae": 0.15927843749523163,
+  "final_train_loss": 0.009318177588284016,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

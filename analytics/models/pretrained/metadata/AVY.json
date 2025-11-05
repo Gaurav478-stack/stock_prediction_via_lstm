@@ -1,0 +1,22 @@
+{
+  "symbol": "AVY",
+  "trained_date": "2025-11-04T13:27:44.471014",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.03160322085022926,
+  "test_mae": 0.16307081282138824,
+  "final_train_loss": 0.01073360349982977,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

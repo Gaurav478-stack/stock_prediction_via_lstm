@@ -1,0 +1,22 @@
+{
+  "symbol": "PLD",
+  "trained_date": "2025-11-04T13:28:10.281286",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.020923899486660957,
+  "test_mae": 0.10548412799835205,
+  "final_train_loss": 0.011036686599254608,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

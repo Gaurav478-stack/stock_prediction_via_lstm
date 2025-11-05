@@ -1,0 +1,22 @@
+{
+  "symbol": "LLY",
+  "trained_date": "2025-11-04T13:22:03.636772",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.016270626336336136,
+  "test_mae": 0.09922537952661514,
+  "final_train_loss": 0.024058084934949875,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "SPG",
+  "trained_date": "2025-11-04T13:28:26.701137",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.011584995314478874,
+  "test_mae": 0.09544305503368378,
+  "final_train_loss": 0.014313379302620888,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

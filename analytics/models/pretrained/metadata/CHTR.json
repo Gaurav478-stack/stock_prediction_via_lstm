@@ -1,0 +1,22 @@
+{
+  "symbol": "CHTR",
+  "trained_date": "2025-11-04T13:31:13.644946",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.03783029317855835,
+  "test_mae": 0.18864278495311737,
+  "final_train_loss": 0.01794932596385479,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

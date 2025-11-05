@@ -1,0 +1,22 @@
+{
+  "symbol": "COP",
+  "trained_date": "2025-11-04T13:25:51.452364",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.011485095135867596,
+  "test_mae": 0.09062492102384567,
+  "final_train_loss": 0.03595185652375221,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

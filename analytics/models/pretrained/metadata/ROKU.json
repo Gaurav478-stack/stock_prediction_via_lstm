@@ -1,0 +1,22 @@
+{
+  "symbol": "ROKU",
+  "trained_date": "2025-11-04T13:31:37.972854",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.019955342635512352,
+  "test_mae": 0.12437493354082108,
+  "final_train_loss": 0.014699799008667469,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

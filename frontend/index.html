@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSense | Smart Investing Made Simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line logo-icon"></i>
+                    <span>StockSense</span>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+                    <a href="#" class="nav-link" data-page="markets">Markets</a>
+                    <a href="#" class="nav-link" data-page="portfolio">Portfolio</a>
+                    <a href="#" class="nav-link" data-page="news">News</a>
+                    <a href="#" class="nav-link" data-page="analysis">AI Analysis</a>
+                </nav>
+                
+                <div class="search-container">
+                    <select id="marketSelector" class="market-selector">
+                        <option value="all">All Markets</option>
+                        <option value="us">US Stocks</option>
+                        <option value="india">Indian Stocks (NSE)</option>
+                    </select>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="stockSearch" placeholder="Search stocks... (Try: AAPL, TCS.NS, RELIANCE.NS)">
+                    </div>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+                
+                <div class="user-actions">
+                    <div id="userStatus">
+                        <button class="btn btn-outline" id="loginBtn">Sign In</button>
+                        <button class="btn btn-primary" id="signupBtn">Get Started</button>
+                    </div>
+                    <div id="userProfile" style="display: none;">
+                        <span id="userName"></span>
+                        <button class="btn btn-outline" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-page">
+        <div class="landing-container">
+            <div class="landing-content">
+                <h1 class="landing-title">Groww your wealth</h1>
+                <p class="landing-subtitle">Built for Smart Investors</p>
+                <button class="btn btn-primary btn-lg" id="getStartedBtn">Get started</button>
+            </div>
+            
+            <div class="landing-illustration">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Buildings -->
+                    <g class="buildings">
+                        <!-- Building 1 - Left tower -->
+                        <rect x="80" y="250" width="60" height="200" fill="#E3F2FD" stroke="#90CAF9" stroke-width="2"/>
+                        <rect x="85" y="260" width="15" height="20" fill="#BBDEFB"/>
+                        <rect x="105" y="260" width="15" height="20" fill="#BBDEFB"/>
+                        <rect x="125" y="260" width="15" height="20" fill="#BBDEFB"/>
+                        <rect x="85" y="290" width="15" height="20" fill="#BBDEFB"/>
+                        <rect x="105" y="290" width="15" height="20" fill="#BBDEFB"/>
+                        <rect x="125" y="290" width="15" height="20" fill="#BBDEFB"/>
+                        
+                        <!-- Building 2 - Center tall -->
+                        <rect x="180" y="180" width="70" height="270" fill="#E3F2FD" stroke="#64B5F6" stroke-width="2"/>
+                        <rect x="190" y="195" width="18" height="25" fill="#90CAF9"/>
+                        <rect x="215" y="195" width="18" height="25" fill="#90CAF9"/>
+                        <rect x="190" y="230" width="18" height="25" fill="#90CAF9"/>
+                        <rect x="215" y="230" width="18" height="25" fill="#90CAF9"/>
+                        <rect x="190" y="265" width="18" height="25" fill="#90CAF9"/>
+                        <rect x="215" y="265" width="18" height="25" fill="#90CAF9"/>
+                        
+                        <!-- Building 3 - Right modern -->
+                        <rect x="550" y="200" width="80" height="250" fill="#E8F5E9" stroke="#81C784" stroke-width="2"/>
+                        <rect x="560" y="215" width="25" height="30" fill="#A5D6A7"/>
+                        <rect x="595" y="215" width="25" height="30" fill="#A5D6A7"/>
+                        <rect x="560" y="255" width="25" height="30" fill="#A5D6A7"/>
+                        <rect x="595" y="255" width="25" height="30" fill="#A5D6A7"/>
+                        
+                        <!-- Building 4 - Far right -->
+                        <rect x="680" y="280" width="50" height="170" fill="#F3E5F5" stroke="#BA68C8" stroke-width="2"/>
+                        <rect x="690" y="295" width="12" height="18" fill="#CE93D8"/>
+                        <rect x="708" y="295" width="12" height="18" fill="#CE93D8"/>
+                    </g>
+                    
+                    <!-- Stock ticker displays -->
+                    <g class="stock-tickers">
+                        <!-- Ticker 1 -->
+                        <rect x="300" y="280" width="120" height="60" fill="#fff" stroke="#4CAF50" stroke-width="2" rx="5"/>
+                        <text x="360" y="305" text-anchor="middle" fill="#4CAF50" font-size="12" font-weight="600">AAPL</text>
+                        <text x="360" y="325" text-anchor="middle" fill="#4CAF50" font-size="16" font-weight="700">+2.5%</text>
+                        
+                        <!-- Ticker 2 -->
+                        <rect x="460" y="340" width="120" height="60" fill="#fff" stroke="#F44336" stroke-width="2" rx="5"/>
+                        <text x="520" y="365" text-anchor="middle" fill="#F44336" font-size="12" font-weight="600">TSLA</text>
+                        <text x="520" y="385" text-anchor="middle" fill="#F44336" font-size="16" font-weight="700">-1.2%</text>
+                    </g>
+                    
+                    <!-- Charts and graphs -->
+                    <g class="mini-charts">
+                        <!-- Line chart icon -->
+                        <polyline points="100,380 120,360 140,370 160,340 180,355" 
+                                  fill="none" stroke="#2196F3" stroke-width="3"/>
+                        
+                        <!-- Bar chart -->
+                        <rect x="650" y="420" width="15" height="30" fill="#4CAF50" opacity="0.7"/>
+                        <rect x="670" y="410" width="15" height="40" fill="#4CAF50" opacity="0.8"/>
+                        <rect x="690" y="400" width="15" height="50" fill="#4CAF50"/>
+                    </g>
+                    
+                    <!-- Decorative elements -->
+                    <circle cx="350" cy="200" r="30" fill="#FFF9C4" opacity="0.6"/>
+                    <circle cx="500" cy="150" r="20" fill="#FFE0B2" opacity="0.5"/>
+                    
+                    <!-- Palm trees -->
+                    <rect x="670" y="430" width="6" height="40" fill="#8D6E63"/>
+                    <ellipse cx="673" cy="425" rx="15" ry="12" fill="#66BB6A"/>
+                    
+                    <rect x="730" y="440" width="5" height="30" fill="#8D6E63"/>
+                    <ellipse cx="732" cy="436" rx="12" ry="10" fill="#66BB6A"/>
+                </svg>
+            </div>
+            
+            <div class="landing-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track stocks with live data and advanced charts</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Portfolio Management</h3>
+                    <p>Manage your investments in one place</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Get intelligent analysis and recommendations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Market News</h3>
+                    <p>Stay updated with latest financial news</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container" id="mainApp" style="display: none;">
+        <!-- API Key Setup -->
+        <div id="apiKeySetup" class="api-key-setup" style="display: none;">
+            <h3>Alpha Vantage API Key Required</h3>
+            <p>To use StockSense with real-time data, you need an Alpha Vantage API key.</p>
+            <div class="api-key-input">
+                <input type="text" id="apiKeyInput" placeholder="Enter your Alpha Vantage API key">
+                <button class="btn btn-primary" id="saveApiKey">Save Key</button>
+            </div>
+            <p style="margin-top: var(--space-sm); font-size: 0.9rem;">
+                Don't have an API key? <a href="https://www.alphavantage.co/support/#api-key" target="_blank">Get one for free here</a>
+            </p>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div id="dashboardView">
+            <!-- Market Tabs -->
+            <div class="market-tabs">
+                <button class="market-tab active" data-market="global" id="globalMarketTab">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Global Overview</span>
+                </button>
+                <button class="market-tab" data-market="us" id="usMarketTab">
+                    <i class="fas fa-flag-usa"></i>
+                    <span>US Markets</span>
+                </button>
+                <button class="market-tab" data-market="india" id="indiaMarketTab">
+                    <i class="fas fa-flag"></i>
+                    <span>Indian Markets (NSE)</span>
+                </button>
+            </div>
+
+            <!-- Market Content Container -->
+            <div id="marketContent">
+                <!-- Global View (Default) -->
+                <div class="market-view active" id="globalMarketView">
+                    <div class="dashboard-grid">
+                <!-- Watchlist Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Watchlist</h2>
+                        <div class="card-actions">
+                            <button class="btn btn-outline btn-sm" id="editWatchlist">Edit</button>
+                        </div>
+                    </div>
+                    <div id="watchlistContainer">
+                        <!-- Dynamic content will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Market Overview Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Market Overview</h2>
+                        <div class="card-actions">
+                            <button class="btn btn-outline btn-sm" id="marketDetails">Details</button>
+                        </div>
+                    </div>
+                    <div id="marketSentiment">
+                        <!-- Dynamic sentiment indicator -->
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- News Feed Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Financial News</h2>
+                        <div class="card-actions">
+                            <button class="btn btn-outline btn-sm" id="moreNews">More</button>
+                        </div>
+                    </div>
+                    <div id="newsContainer">
+                        <!-- Dynamic news content -->
+                    </div>
+                </div>
+            </div>
+                </div>
+
+                <!-- US Markets View -->
+                <div class="market-view markets-tab-content" data-market="us" id="usMarketView" style="display: none;">
+                    <div class="market-header">
+                        <h2><i class="fas fa-chart-line"></i> US Stock Market</h2>
+                        <p class="market-description">Track major US indices and popular American stocks</p>
+                        <div class="market-status" data-market="us" id="usMarketStatus">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">Market Status</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="market-quick-actions">
+                        <button class="market-action-btn" data-action="movers" id="usMarketMovers">
+                            <i class="fas fa-rocket"></i> Top Movers
+                        </button>
+                        <button class="market-action-btn" data-action="sectors" id="usSectors">
+                            <i class="fas fa-layer-group"></i> Sectors
+                        </button>
+                        <button class="market-action-btn" data-action="heatmap" id="usHeatmap">
+                            <i class="fas fa-th"></i> Heat Map
+                        </button>
+                        <button class="market-action-btn" data-action="compare" id="usCompare">
+                            <i class="fas fa-balance-scale"></i> Compare
+                        </button>
+                    </div>
+
+                    <!-- Indices Grid -->
+                    <div class="indices-grid">
+                        <div class="index-card">
+                            <div class="index-name">S&P 500</div>
+                            <div class="index-symbol">SPY</div>
+                            <div class="index-value" id="spyValue">--</div>
+                            <div class="index-change" id="spyChange">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">Nasdaq</div>
+                            <div class="index-symbol">QQQ</div>
+                            <div class="index-value" id="qqqValue">--</div>
+                            <div class="index-change" id="qqqChange">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">Dow Jones</div>
+                            <div class="index-symbol">DIA</div>
+                            <div class="index-value" id="diaValue">--</div>
+                            <div class="index-change" id="diaChange">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">Russell 2000</div>
+                            <div class="index-symbol">IWM</div>
+                            <div class="index-value" id="iwmValue">--</div>
+                            <div class="index-change" id="iwmChange">--</div>
+                        </div>
+                    </div>
+
+                    <!-- Market Movers -->
+                    <div class="market-movers-section">
+                        <h3><i class="fas fa-fire"></i> Market Movers</h3>
+                        <div class="movers-tabs">
+                            <button class="mover-tab active" data-type="gainers">Top Gainers</button>
+                            <button class="mover-tab" data-type="losers">Top Losers</button>
+                            <button class="mover-tab" data-type="active">Most Active</button>
+                        </div>
+                        <div class="movers-grid" id="usMoversGrid">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Popular Stocks -->
+                    <div class="popular-stocks-section">
+                        <h3><i class="fas fa-star"></i> Popular US Stocks</h3>
+                        <div class="stocks-grid" id="usStocksGrid">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indian Markets View -->
+                <div class="market-view markets-tab-content" data-market="india" id="indiaMarketView" style="display: none;">
+                    <div class="market-header">
+                        <h2><i class="fas fa-flag"></i> Indian Stock Market (NSE)</h2>
+                        <p class="market-description">Track NIFTY 50, Bank NIFTY and popular Indian stocks</p>
+                        <div class="market-status" data-market="india" id="indiaMarketStatus">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">Market Status</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="market-quick-actions">
+                        <button class="market-action-btn" data-action="movers" id="indiaMarketMovers">
+                            <i class="fas fa-rocket"></i> Top Movers
+                        </button>
+                        <button class="market-action-btn" data-action="sectors" id="indiaSectors">
+                            <i class="fas fa-layer-group"></i> Sectors
+                        </button>
+                        <button class="market-action-btn" data-action="heatmap" id="indiaHeatmap">
+                            <i class="fas fa-th"></i> Heat Map
+                        </button>
+                        <button class="market-action-btn" data-action="compare" id="indiaCompare">
+                            <i class="fas fa-balance-scale"></i> Compare
+                        </button>
+                    </div>
+
+                    <!-- Indices Grid -->
+                    <div class="indices-grid">
+                        <div class="index-card">
+                            <div class="index-name">NIFTY 50</div>
+                            <div class="index-symbol">^NSEI</div>
+                            <div class="index-value" id="nifty50Value">--</div>
+                            <div class="index-change" id="nifty50Change">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">Bank NIFTY</div>
+                            <div class="index-symbol">^NSEBANK</div>
+                            <div class="index-value" id="bankNiftyValue">--</div>
+                            <div class="index-change" id="bankNiftyChange">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">NIFTY IT</div>
+                            <div class="index-symbol">^CNXIT</div>
+                            <div class="index-value" id="niftyItValue">--</div>
+                            <div class="index-change" id="niftyItChange">--</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">NIFTY Auto</div>
+                            <div class="index-symbol">^CNXAUTO</div>
+                            <div class="index-value" id="niftyAutoValue">--</div>
+                            <div class="index-change" id="niftyAutoChange">--</div>
+                        </div>
+                    </div>
+
+                    <!-- Market Movers -->
+                    <div class="market-movers-section">
+                        <h3><i class="fas fa-fire"></i> Market Movers</h3>
+                        <div class="movers-tabs">
+                            <button class="mover-tab active" data-type="gainers">Top Gainers</button>
+                            <button class="mover-tab" data-type="losers">Top Losers</button>
+                            <button class="mover-tab" data-type="active">Most Active</button>
+                        </div>
+                        <div class="movers-grid" id="indiaMoversGrid">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Popular Stocks -->
+                    <div class="popular-stocks-section">
+                        <h3><i class="fas fa-star"></i> Popular Indian Stocks</h3>
+                        <div class="stocks-grid" id="indiaStocksGrid">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stock Detail View -->
+        <div id="stockDetailView" style="display: none;">
+            <div class="stock-detail-header">
+                <div class="stock-main-info">
+                    <h1 id="detailStockSymbol">--</h1>
+                    <div id="detailStockName" class="stock-name">--</div>
+                    <div class="stock-current-price" id="detailStockPrice">--</div>
+                    <div class="stock-detail-change" id="detailStockChange">--</div>
+                </div>
+                <div class="stock-detail-actions">
+                    <button class="btn btn-outline" id="addToWatchlist">Add to Watchlist</button>
+                    <button class="btn btn-primary" id="viewAnalysis">AI Analysis</button>
+                </div>
+            </div>
+            
+            <div class="stock-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="statOpen">--</div>
+                    <div class="stat-label">Open</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statHigh">--</div>
+                    <div class="stat-label">High</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statLow">--</div>
+                    <div class="stat-label">Low</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statVolume">--</div>
+                    <div class="stat-label">Volume</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Price Chart</h2>
+                    <div class="card-actions">
+                        <select id="timeframeSelect">
+                            <option value="TIME_SERIES_DAILY">Daily</option>
+                            <option value="TIME_SERIES_WEEKLY">Weekly</option>
+                            <option value="TIME_SERIES_MONTHLY">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="stockDetailChart"></canvas>
+                </div>
+            </div>
+
+            <!-- AI Analysis Section -->
+            <div class="card" id="aiAnalysisSection" style="display: none;">
+                <div class="card-header">
+                    <h2 class="card-title">AI-Powered Analysis</h2>
+                    <div class="card-actions">
+                        <span class="ai-badge">Powered by Python Analytics</span>
+                    </div>
+                </div>
+                <div id="aiAnalysisContent">
+                    <!-- AI analysis will be loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- News View -->
+        <div id="newsView" style="display: none;">
+            <div class="news-header">
+                <h2 class="news-main-title">
+                    <i class="fas fa-newspaper"></i>
+                    Financial News & Market Updates
+                </h2>
+                <p class="news-subtitle">Stay informed with the latest market news and analysis</p>
+            </div>
+
+            <!-- News Filters -->
+            <div class="news-controls">
+                <div class="news-filter-tabs">
+                    <button class="news-filter-tab active" data-filter="general" data-region="us">
+                        <i class="fas fa-globe"></i> All News
+                    </button>
+                    <button class="news-filter-tab" data-filter="us" data-region="us">
+                        <i class="fas fa-flag-usa"></i> US Market
+                    </button>
+                    <button class="news-filter-tab" data-filter="india" data-region="in">
+                        <i class="fas fa-flag"></i> Indian Market
+                    </button>
+                    <button class="news-filter-tab" data-filter="trending" data-region="us">
+                        <i class="fas fa-fire"></i> Trending
+                    </button>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div id="newsViewContainer" class="news-grid">
+                <!-- News articles will be loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="news-load-more" style="display: none;">
+                <button id="loadMoreNews" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Load More News
+                </button>
+            </div>
+        </div>
+
+        <!-- Portfolio View -->
+        <div id="portfolioView" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Portfolio Management</h2>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" id="addHoldingBtn">
+                            <i class="fas fa-plus"></i> Add Holding
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="portfolioStats" class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="portfolioTotalValue">$0.00</div>
+                        <div class="stat-label">Total Value</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="portfolioTotalGain">$0.00</div>
+                        <div class="stat-label">Total Gain/Loss</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="portfolioTotalGainPct">0.00%</div>
+                        <div class="stat-label">Return %</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="portfolioHoldingsCount">0</div>
+                        <div class="stat-label">Holdings</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-content">
+                    <div class="portfolio-holdings">
+                        <h3>Your Holdings</h3>
+                        <table id="holdingsTable" class="holdings-table">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Shares</th>
+                                    <th>Avg Cost</th>
+                                    <th>Current Price</th>
+                                    <th>Total Value</th>
+                                    <th>Gain/Loss</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="holdingsTableBody">
+                                <!-- Holdings will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="portfolio-chart-section">
+                        <h3>Portfolio Allocation</h3>
+                        <canvas id="portfolioAllocationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add/Edit Holding Modal -->
+            <div id="holdingModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalTitle">Add Holding</h3>
+                        <button class="modal-close" id="closeModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="holdingSymbol">Symbol</label>
+                            <input type="text" id="holdingSymbol" placeholder="e.g., AAPL" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="holdingShares">Shares</label>
+                            <input type="number" id="holdingShares" placeholder="e.g., 10" min="0.0001" step="0.0001">
+                        </div>
+                        <div class="form-group">
+                            <label for="holdingCost">Purchase Price</label>
+                            <input type="number" id="holdingCost" placeholder="e.g., 150.00" min="0" step="0.01">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancelHoldingBtn">Cancel</button>
+                        <button class="btn btn-primary" id="saveHoldingBtn">Save Holding</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watchlist Editor Modal -->
+            <div id="watchlistModal" class="modal" style="display: none;">
+                <div class="modal-content" style="max-width: 600px;">
+                    <div class="modal-header">
+                        <h3>Edit Watchlist</h3>
+                        <button class="modal-close" id="closeWatchlistModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="watchlist-editor">
+                            <div class="watchlist-add-section">
+                                <input type="text" id="newWatchlistSymbol" placeholder="Add stock symbol (e.g., AAPL, TATASTEEL)" style="flex: 1; margin-right: 10px;">
+                                <button class="btn btn-primary" id="addWatchlistSymbol">Add</button>
+                            </div>
+                            <div class="watchlist-items" id="watchlistEditorItems">
+                                <!-- Watchlist items will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="resetWatchlist">Reset to Default</button>
+                        <button class="btn btn-primary" id="closeWatchlistEditor">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Analysis View -->
+        <div id="analysisView" style="display: none;">
+            <!-- AI Predictions Header -->
+            <div class="ai-header">
+                <div>
+                    <h1><i class="fas fa-brain"></i> AI Predictions & Trading</h1>
+                    <p class="subtitle">Advanced machine learning models for stock price prediction and automated trading strategies</p>
+                </div>
+                <span class="ai-badge">Powered by LSTM & Evolution Strategy</span>
+            </div>
+
+            <!-- LSTM Price Prediction Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-chart-line"></i> LSTM Price Prediction</h2>
+                    <span class="info-badge">Neural Network</span>
+                </div>
+                <div class="card-body">
+                    <p class="section-description">
+                        Use Long Short-Term Memory (LSTM) neural networks to predict future stock prices based on historical patterns.
+                        Run multiple simulations to get confidence intervals and probability ranges.
+                    </p>
+                    
+                    <div class="prediction-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lstmSymbol">Stock Symbol or Company Name</label>
+                                <input type="text" id="lstmSymbol" placeholder="e.g., AAPL, Apple, NVDA, or Nvidia" class="form-input">
+                                <small style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.25rem; display: block;">
+                                    💡 Try: "apple", "microsoft", "tesla", "nvidia", "google", "amazon", etc.
+                                </small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lstmPeriod">Training Period</label>
+                                <select id="lstmPeriod" class="form-input">
+                                    <option value="1y">1 Year</option>
+                                    <option value="2y" selected>2 Years</option>
+                                    <option value="5y">5 Years</option>
+                                    <option value="max">Maximum</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lstmSimulations">Simulations</label>
+                                <input type="number" id="lstmSimulations" value="5" min="1" max="10" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lstmFutureDays">Future Days</label>
+                                <input type="number" id="lstmFutureDays" value="30" min="1" max="90" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-lg" id="runLSTMPrediction">
+                            <i class="fas fa-play"></i> Run Prediction
+                        </button>
+                    </div>
+                    
+                    <div id="lstmResults" style="display: none;" class="prediction-results">
+                        <div class="results-header">
+                            <h3><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Prediction Complete</h3>
+                            
+                            <!-- Main Prediction Display -->
+                            <div class="main-prediction-card">
+                                <div class="prediction-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="prediction-content">
+                                    <div class="current-price-section">
+                                        <span class="price-label">Current Price</span>
+                                        <div class="price-display current-price-display">
+                                            <span class="currency">$</span>
+                                            <span class="price-value" id="lstmCurrentPrice">0.00</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="prediction-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    
+                                    <div class="predicted-price-section">
+                                        <span class="price-label">Predicted Price <span id="lstmDaysLabel">(30 days)</span></span>
+                                        <div class="price-display predicted-price-display">
+                                            <span class="currency">$</span>
+                                            <span class="price-value" id="lstmPredictedPrice">0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="change-indicator" id="lstmChangeIndicator">
+                                    <div class="change-badge">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span id="lstmPriceChange">0.00%</span>
+                                    </div>
+                                    <span class="change-text" id="lstmChangeText">Expected to increase</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Metrics -->
+                            <div class="prediction-metrics">
+                                <div class="metric-card fade-in-up" style="animation-delay: 0.1s;">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-label">Model Accuracy</span>
+                                        <span class="metric-value" id="lstmConfidence">-</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card fade-in-up" style="animation-delay: 0.2s;">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-label">Prediction Horizon</span>
+                                        <span class="metric-value" id="lstmHorizon">30 days</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card fade-in-up" style="animation-delay: 0.3s;">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-label">Model Type</span>
+                                        <span class="metric-value" id="lstmModelType">Pre-trained LSTM</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card fade-in-up" style="animation-delay: 0.4s;">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-label">Processing Time</span>
+                                        <span class="metric-value" id="lstmProcessTime">2.5s</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container fade-in" style="height: 400px; animation-delay: 0.5s;">
+                            <canvas id="lstmPredictionChart"></canvas>
+                        </div>
+                        
+                        <!-- Visualization Section -->
+                        <div class="visualization-section fade-in" style="margin-top: 30px; animation-delay: 0.6s;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0; color: var(--text-primary);">
+                                    <i class="fas fa-chart-area"></i> Advanced Python Visualization
+                                </h3>
+                                <div style="display: flex; gap: 10px;">
+                                    <button class="btn btn-primary" id="loadEnhancedDashboard" style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-chart-pie"></i> AI Dashboard (9 Charts)
+                                    </button>
+                                    <button class="btn btn-secondary" id="loadComprehensiveAnalysis" style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-chart-bar"></i> Standard Analysis
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="visualizationContainer" style="display: none;">
+                                <div class="chart-container" style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-height: 80vh; overflow-y: auto;">
+                                    <img id="pythonChart" style="max-width: 100%; height: auto; border-radius: 8px; cursor: pointer; display: block;" alt="Prediction Visualization" onclick="window.open(this.src)">
+                                </div>
+                                <div style="margin-top: 15px; text-align: center;">
+                                    <small style="color: var(--text-secondary);">
+                                        <i class="fas fa-info-circle"></i> Click image to open in full size • Generated using Python matplotlib
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div id="visualizationLoading" style="display: none; text-align: center; padding: 40px;">
+                                <div class="spinner"></div>
+                                <p style="margin-top: 15px; color: var(--text-secondary);">Generating comprehensive analysis with 6 charts...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="lstmLoading" class="loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Training LSTM model and generating predictions...</p>
+                        <small>This may take 30-60 seconds</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trading Agent Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-robot"></i> AI Trading Agent</h2>
+                    <span class="info-badge">Evolution Strategy</span>
+                </div>
+                <div class="card-body">
+                    <p class="section-description">
+                        Simulate automated trading strategies using evolution-based algorithms. Test different strategies
+                        and compare their performance against simple buy-and-hold approach.
+                    </p>
+                    
+                    <div class="prediction-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="agentSymbol">Stock Symbol or Company Name</label>
+                                <input type="text" id="agentSymbol" placeholder="e.g., TSLA, Tesla, or TCS" class="form-input">
+                                <small style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.25rem; display: block;">
+                                    💡 Works with company names too!
+                                </small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="agentPeriod">Trading Period</label>
+                                <select id="agentPeriod" class="form-input">
+                                    <option value="6mo">6 Months</option>
+                                    <option value="1y" selected>1 Year</option>
+                                    <option value="2y">2 Years</option>
+                                    <option value="5y">5 Years</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="agentFund">Initial Fund ($)</label>
+                                <input type="number" id="agentFund" value="10000" min="100" max="1000000" step="1000" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="agentSkipDays">Skip Days</label>
+                                <input type="number" id="agentSkipDays" value="5" min="1" max="30" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="agentStrategy">Strategy</label>
+                                <select id="agentStrategy" class="form-input">
+                                    <option value="ma" selected>Moving Average</option>
+                                    <option value="momentum">Momentum</option>
+                                    <option value="rsi">RSI</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-lg" id="runTradingAgent">
+                            <i class="fas fa-play"></i> Run Trading Simulation
+                        </button>
+                    </div>
+                    
+                    <div id="agentResults" style="display: none;">
+                        <div class="results-header">
+                            <h3>Trading Results</h3>
+                            <div class="prediction-metrics">
+                                <div class="metric-card">
+                                    <span class="metric-label">Initial Fund</span>
+                                    <span class="metric-value" id="agentInitialFund">-</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-label">Final Value</span>
+                                    <span class="metric-value" id="agentFinalValue">-</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-label">Total Profit</span>
+                                    <span class="metric-value" id="agentProfit">-</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-label">Return %</span>
+                                    <span class="metric-value" id="agentReturn">-</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-label">Total Trades</span>
+                                    <span class="metric-value" id="agentTrades">-</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-label">vs Buy & Hold</span>
+                                    <span class="metric-value" id="agentAdvantage">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="tradingAgentChart"></canvas>
+                        </div>
+                        <div class="trades-list">
+                            <h4>Trade History</h4>
+                            <div id="tradesTable"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="agentLoading" class="loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Running trading simulation...</p>
+                        <small>Analyzing market data and executing trades</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StockSense</h3>
+                    <p>Empowering investors with intuitive tools and clear insights for confident decision making.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Stock Analysis</a></li>
+                        <li><a href="#">Portfolio Tracking</a></li>
+                        <li><a href="#">Market News</a></li>
+                        <li><a href="#">AI Insights</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 StockSense. All rights reserved. | Powered by yfinance & Python Analytics
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script>
+        // Global error handler
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+        });
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+        });
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/yfinance-service.js"></script>
+    <script src="js/alphavantage-service.js"></script>
+    <script src="js/data-service.js"></script>
+    <script src="js/chart-service.js"></script>
+    <script src="js/ui-controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "symbol": "EOG",
+  "trained_date": "2025-11-04T13:25:58.850802",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.006863730028271675,
+  "test_mae": 0.07275421172380447,
+  "final_train_loss": 0.022381043061614037,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

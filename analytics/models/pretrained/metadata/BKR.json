@@ -1,0 +1,22 @@
+{
+  "symbol": "BKR",
+  "trained_date": "2025-11-04T13:26:25.525271",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01854602061212063,
+  "test_mae": 0.11635255813598633,
+  "final_train_loss": 0.019581541419029236,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

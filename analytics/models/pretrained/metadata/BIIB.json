@@ -1,0 +1,22 @@
+{
+  "symbol": "BIIB",
+  "trained_date": "2025-11-04T13:22:22.928513",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.03469398245215416,
+  "test_mae": 0.1554316133260727,
+  "final_train_loss": 0.011288436129689217,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

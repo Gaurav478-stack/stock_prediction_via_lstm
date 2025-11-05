@@ -1,0 +1,22 @@
+{
+  "symbol": "NDAQ",
+  "trained_date": "2025-11-04T13:21:24.417513",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.005224338732659817,
+  "test_mae": 0.062031831592321396,
+  "final_train_loss": 0.014170006848871708,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

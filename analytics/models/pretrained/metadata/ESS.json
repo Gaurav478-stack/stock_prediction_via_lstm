@@ -1,0 +1,22 @@
+{
+  "symbol": "ESS",
+  "trained_date": "2025-11-04T13:29:24.603753",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.03485812619328499,
+  "test_mae": 0.17458069324493408,
+  "final_train_loss": 0.029613669961690903,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

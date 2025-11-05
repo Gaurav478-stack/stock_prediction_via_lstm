@@ -1,0 +1,22 @@
+{
+  "symbol": "CE",
+  "trained_date": "2025-11-04T13:27:28.763931",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.009831889532506466,
+  "test_mae": 0.08954950422048569,
+  "final_train_loss": 0.0157854612916708,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

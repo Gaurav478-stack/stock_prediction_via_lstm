@@ -1,0 +1,22 @@
+{
+  "symbol": "DOCU",
+  "trained_date": "2025-11-04T13:20:06.198048",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.010169729590415955,
+  "test_mae": 0.07454287260770798,
+  "final_train_loss": 0.012643208727240562,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

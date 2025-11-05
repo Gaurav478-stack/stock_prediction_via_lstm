@@ -1,0 +1,22 @@
+{
+  "symbol": "ROK",
+  "trained_date": "2025-11-04T13:25:21.667026",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0036457059904932976,
+  "test_mae": 0.047008514404296875,
+  "final_train_loss": 0.012265671044588089,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "XEL",
+  "trained_date": "2025-11-04T13:29:55.018696",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.04622611030936241,
+  "test_mae": 0.17634426057338715,
+  "final_train_loss": 0.006024059373885393,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

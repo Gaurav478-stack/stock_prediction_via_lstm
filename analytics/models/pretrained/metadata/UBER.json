@@ -1,0 +1,22 @@
+{
+  "symbol": "UBER",
+  "trained_date": "2025-11-04T13:19:44.676173",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.017345266416668892,
+  "test_mae": 0.12009068578481674,
+  "final_train_loss": 0.013390335254371166,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "SLG",
+  "trained_date": "2025-11-04T13:29:05.332855",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.008963089436292648,
+  "test_mae": 0.07269920408725739,
+  "final_train_loss": 0.011032957583665848,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

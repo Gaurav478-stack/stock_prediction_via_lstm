@@ -1,0 +1,22 @@
+{
+  "symbol": "MCD",
+  "trained_date": "2025-11-04T13:23:47.085032",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.030748708173632622,
+  "test_mae": 0.14218774437904358,
+  "final_train_loss": 0.021355442702770233,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

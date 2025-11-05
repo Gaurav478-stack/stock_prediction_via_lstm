@@ -1,0 +1,22 @@
+{
+  "symbol": "DVN",
+  "trained_date": "2025-11-04T13:26:18.092861",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.02041867934167385,
+  "test_mae": 0.11695245653390884,
+  "final_train_loss": 0.0270595271140337,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

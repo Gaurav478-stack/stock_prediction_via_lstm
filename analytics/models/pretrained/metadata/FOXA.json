@@ -1,0 +1,22 @@
+{
+  "symbol": "FOXA",
+  "trained_date": "2025-11-04T13:31:18.261952",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.026312310248613358,
+  "test_mae": 0.1288856416940689,
+  "final_train_loss": 0.01072691474109888,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

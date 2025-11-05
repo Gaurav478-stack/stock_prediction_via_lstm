@@ -1,0 +1,22 @@
+{
+  "symbol": "EL",
+  "trained_date": "2025-11-04T13:24:04.367519",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01856771856546402,
+  "test_mae": 0.11127745360136032,
+  "final_train_loss": 0.009812798351049423,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

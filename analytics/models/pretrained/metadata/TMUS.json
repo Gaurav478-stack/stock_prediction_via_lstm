@@ -1,0 +1,22 @@
+{
+  "symbol": "TMUS",
+  "trained_date": "2025-11-04T13:31:01.933377",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.013188891112804413,
+  "test_mae": 0.08711107820272446,
+  "final_train_loss": 0.01782047562301159,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

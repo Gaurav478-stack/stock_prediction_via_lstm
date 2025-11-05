@@ -1,0 +1,22 @@
+{
+  "symbol": "NTDOY",
+  "trained_date": "2025-11-04T13:33:03.716865",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.021815937012434006,
+  "test_mae": 0.13226039707660675,
+  "final_train_loss": 0.011892401613295078,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

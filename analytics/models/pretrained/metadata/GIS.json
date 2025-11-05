@@ -1,0 +1,22 @@
+{
+  "symbol": "GIS",
+  "trained_date": "2025-11-04T13:24:11.680317",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0040529523976147175,
+  "test_mae": 0.054890796542167664,
+  "final_train_loss": 0.008679191581904888,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

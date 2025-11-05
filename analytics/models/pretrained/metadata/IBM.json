@@ -1,0 +1,22 @@
+{
+  "symbol": "IBM",
+  "trained_date": "2025-11-04T13:19:15.415113",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.023723401129245758,
+  "test_mae": 0.10821365565061569,
+  "final_train_loss": 0.008438230492174625,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

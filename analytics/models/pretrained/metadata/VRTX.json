@@ -1,0 +1,22 @@
+{
+  "symbol": "VRTX",
+  "trained_date": "2025-11-04T13:22:30.763435",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.0183879304677248,
+  "test_mae": 0.11931725591421127,
+  "final_train_loss": 0.026295645162463188,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

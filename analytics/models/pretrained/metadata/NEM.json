@@ -1,0 +1,22 @@
+{
+  "symbol": "NEM",
+  "trained_date": "2025-11-04T13:27:04.137228",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.024088744074106216,
+  "test_mae": 0.14071032404899597,
+  "final_train_loss": 0.0022429765667766333,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

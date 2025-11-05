@@ -1,0 +1,22 @@
+{
+  "symbol": "QCOM",
+  "trained_date": "2025-11-04T13:19:19.857766",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.018449295312166214,
+  "test_mae": 0.09643913805484772,
+  "final_train_loss": 0.012814235873520374,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}

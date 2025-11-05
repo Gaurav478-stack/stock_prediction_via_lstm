@@ -1,0 +1,22 @@
+{
+  "symbol": "RTX",
+  "trained_date": "2025-11-04T13:24:56.324742",
+  "training_samples": 160,
+  "test_samples": 41,
+  "test_loss": 0.01466685812920332,
+  "test_mae": 0.09717319905757904,
+  "final_train_loss": 0.005644700955599546,
+  "epochs": 10,
+  "lookback": 30,
+  "features": [
+    "Close",
+    "Volume",
+    "MA5",
+    "MA10",
+    "MA20",
+    "Price_Change",
+    "Price_Range",
+    "Volume_Change",
+    "RSI"
+  ]
+}
